@@ -1,0 +1,26 @@
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+cd /home/grim/golang-gorm-postgresql
+
+go mod init github.com/AleksandarMuradyan/golang-gorm-postgresql
+
+go get github.com/spf13/viper
+go get -u gorm.io/gorm  
+go get gorm.io/driver/postgres
+go get github.com/google/uuid
+
+docker exec -it postgres bash
+
+Step 1: Enter the Postgres shell with this command 
+
+psql -U admin <database name>:
+
+psql -U admin golang-gorm
+
+psql -U postgres
+
+select * from pg_available_extensions;
+
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+
